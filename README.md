@@ -17,4 +17,22 @@ Here two types of instruction formats are specified which have been used in the 
 1. R-type Instruction
 2. I-type instruction
 
-![](reg.png=500x500)
+<img src="reg.png" width="2000">
+
+
+<i>Following conventions are used in image:</i><br>
+(a) <b><i>Rs</i></b> : Source register 1<br>
+(b) <b><i>Rt</i></b> : Source register 2<br>
+(c) <b><i>Rd</i></b> : Destination register<br>
+(d) <b><i>shamt</i></b> : Shift amount<br>
+(e) <b><i>funct</i></b> : opcode extension<br>
+
+Examples of R-type instruction : ADD R15,R2,R3; OR R5,R3,R2; MUL R2,R2,R1. <br>
+Examples of I-type instruction : ADDI R15,R0,20; LW R20,84(R9) (Load content of memory location (R9)+84 to R20). <br>
+
+
+## MIPS32 Non-pipelined architecture
+
+<img src="MIPS.png" width="1500">
+
+<i>Credits: Image from taken from Computer Organization and Design: the Hardware/Software Interface (Patterson, Hennessy)</i>

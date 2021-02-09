@@ -15,6 +15,8 @@ The instruction memory and data memory are kept separate in order to access both
 Here two types of instruction formats are specified which have been used in the instruction encoding:
 
 1. <b>R-type Instructions<b> : <br>
+ | Opcode | Operation |
+ | --- | --- |
  | 'ADD' | Adds Rs & Rt and stores in Rd |
  | 'SUB' | Subtracts Rs with Rt and stores in Rd |
  | 'AND' | Performs logical and between Rs & Rt and stores in Rd |

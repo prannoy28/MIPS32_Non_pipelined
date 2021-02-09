@@ -14,23 +14,18 @@ The instruction memory and data memory are kept separate in order to access both
 
 Here two types of instruction formats are specified which have been used in the instruction encoding:
 
-
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
-
 1. <b>R-type Instructions<b> : <br>
- | Opcode | Operation |<br>
- | --- | --- |<br>
- | 'ADD' | Adds Rs & Rt and stores in Rd |<br>
- | 'SUB' | Subtracts Rs with Rt and stores in Rd |<br>
- | 'AND' | Performs logical and between Rs & Rt and stores in Rd |<br>
- | 'OR' | Performs logical or between Rs & Rt and stores in Rd |<br>
- | 'SLT' | Sets Rd if Rs<Rt |<br>
- | 'MUL' | Multiplies Rs with Rt and stores in Rd |<br>
- | 'HLT' | Halt |<br>
-
+ 
+ | Opcode | Operation |
+ | --- | --- |
+ | 'ADD' | Adds Rs & Rt and stores in Rd |
+ | 'SUB' | Subtracts Rs with Rt and stores in Rd |
+ | 'AND' | Performs logical and between Rs & Rt and stores in Rd |
+ | 'OR' | Performs logical or between Rs & Rt and stores in Rd |
+ | 'SLT' | Sets Rd if Rs<Rt |
+ | 'MUL' | Multiplies Rs with Rt and stores in Rd |
+ | 'HLT' | Halt |
+ 
 2. I-type instruction
 
 <img src="reg.png" width="2000">

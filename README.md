@@ -5,6 +5,16 @@
 The instruction memory and data memory are kept separate in order to access both memories at the same point of time. This processor supports very few addressing modes. Addressing modes are the ways of specifying the location of the operand through the instructions on which operations are to be done. The various addressing modes available to MIPS32 are: 
 
 1. <b>Register Addressing Mode</b> : The operand is stored in one of the registers among R0-R31.
-2. <b>Immediate Addressing Mode</b> : The operand is stored is specified in the instruction itself.
-3. <b>Register Indexed Addressing Mode</b> : The 
 
+2. <b>Immediate Addressing Mode</b> : The operand is stored is specified in the instruction itself.
+
+3. <b>Base Indexed Addressing Mode</b> : Here a register with and offset is provided in a single instruction. The content of register is added with the offset to obtain an address in the memory where operand is stored. 
+
+## Types of Instructions
+
+Here two types of instruction formats are specified which have been used in the instruction encoding:
+
+1. R-type Instruction
+2. I-type instruction
+
+![](reg.png=500x500)

@@ -18,15 +18,26 @@ Here two types of instruction formats are specified which have been used in the 
  
  | Opcode | Operation |
  | --- | --- |
- | 'ADD' | Adds Rs & Rt and stores in Rd |
- | 'SUB' | Subtracts Rs with Rt and stores in Rd |
- | 'AND' | Performs logical and between Rs & Rt and stores in Rd |
- | 'OR' | Performs logical or between Rs & Rt and stores in Rd |
- | 'SLT' | Sets Rd if Rs<Rt |
- | 'MUL' | Multiplies Rs with Rt and stores in Rd |
- | 'HLT' | Halt |
+ | `ADD` | Adds Rs & Rt and stores in Rd |
+ | `SUB` | Subtracts Rs with Rt and stores in Rd |
+ | `AND` | Performs logical and between Rs & Rt and stores in Rd |
+ | `OR` | Performs logical or between Rs & Rt and stores in Rd |
+ | `SLT` | Sets Rd if Rs<Rt |
+ | `MUL` | Multiplies Rs with Rt and stores in Rd |
+ | `HLT` | Halt |
  
 2. I-type instruction
+
+ | Opcode | Operation |
+ | --- | --- |
+ | `LW` | Load content of memory location given (Rs)+offset and store it in Rt |
+ | `SW` | Store content of Rt to memory location given by (Rs)+offset |
+ | `ADDI` | Adds Rs & immediate data and stores in Rt |
+ | `SUBI` | Subtracts Rs with immediate data and stores in Rt |
+ | `SLTI` | Sets Rt if Rs<(Immediate data) |
+ | `BNEQZ` | Branch if Rs is not equal to zero to specified label |
+ | `BEQZ` | Branch if Rs is equal to zero to specified label |
+ 
 
 <img src="reg.png" width="2000">
 
@@ -47,3 +58,23 @@ Examples of I-type instruction : ADDI R15,R0,20; LW R20,84(R9) (Load content of 
 <img src="MIPS.png" width="1500">
 
 <i>Credits: Image from taken from Computer Organization and Design: the Hardware/Software Interface (Patterson, Hennessy)</i>
+
+## Example Programs
+
+<b>1. To add three numbers and store result in a register.</b>
+
+ | Instruction | Operation |
+ | --- | --- |
+ | ADDI R1,R0,10 | (R1)=10 |
+ | ADDI R2,R0,20 | (R2)=20 |
+ | ADDI R3,R0,25 | (R3)=25 |
+ | OR R7,R7,R7 | Stall instruction |
+ | ADD R4,R1,R2 | (R4)=(R1)+(R2) |
+ | OR R7,R7,R7 | Stall instruction |
+ | ADD R5,R4,R3 | (R5)=(R4)+(R3) |
+ | HLT | Halt |
+ 
+ The following result was obtained upon execution<br>
+ ![](ex1.png)
+
+

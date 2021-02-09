@@ -14,6 +14,12 @@ The instruction memory and data memory are kept separate in order to access both
 
 Here two types of instruction formats are specified which have been used in the instruction encoding:
 
+
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
 1. <b>R-type Instructions<b> : <br>
  | Opcode | Operation |<br>
  | --- | --- |<br>

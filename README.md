@@ -63,18 +63,71 @@ Examples of I-type instruction : ADDI R15,R0,20; LW R20,84(R9) (Load content of 
 
 <b>1. To add three numbers and store result in a register.</b>
 
- | Instruction | Operation |
- | --- | --- |
- | ADDI R1,R0,10 | (R1)=10 |
- | ADDI R2,R0,20 | (R2)=20 |
- | ADDI R3,R0,25 | (R3)=25 |
- | OR R7,R7,R7 | Stall instruction |
- | ADD R4,R1,R2 | (R4)=(R1)+(R2) |
- | OR R7,R7,R7 | Stall instruction |
- | ADD R5,R4,R3 | (R5)=(R4)+(R3) |
- | HLT | Halt |
+ ```
+ ADDI R1,R0,10    //[R1]=10
+ ADDI R2,R0,20    //[R2]=20
+ ADDI R3,R0,10    //[R3]=30
+ ADDI R4,R1,R2    //[R4]=[R1]+[R2]
+ OR R7,R7,R7      //Stall instruction
+ ADDI R4,R1,R2    //[R5]=[R4]+[R3]
+ OR R7,R7,R7      //Stall instruction
+ HLT              //Halt
+ ```
+ 
  
  The following result was obtained upon execution<br>
  ![](ex1.png)
 
 
+<b>2. To load content stored in memory location 120, add 45 to it and store it back to location 130.</b>
+
+
+ ```
+ ADDI R1,R0,120    //[R1]=120
+ LW R2,0(R1)       //[R2]= Mem[(R1)]
+ OR R7,R7,R7      //Stall instruction
+ ADDI R2,R2,45     //[R2]= [R2]+45
+ OR R7,R7,R7      //Stall instruction
+ SW R2,1(R1)       //Mem[(R1)+1]= [R2]
+ HLT              //Halt
+ ```
+ 
+ 
+ 
+ The following result was obtained upon execution<br>
+ 
+ ![](ex2.png)
+ 
+ 
+ 
+ The timing waveform is shown in below figure :<br>
+ 
+ ![](wf_load_store.png)
+
+
+<b>3. To compute factorial of a number stored in location 200 and store the result in memory location 198.</b>
+
+```
+ADDI R10,R0,200       //[R10]=200
+ADDI R2,R0,1          //[R2]=1
+LW R3,0(R10)          //[R3]= Mem[(R10)]
+OR R20,R20,R20        //Stall instruction
+Loop: MUL R2,R2,R3    //[R2]=[R2]*[R3]
+OR R20,R20,R20        //Stall instruction
+SUBI R3,R3,1          //[R3]=[R3]-1
+OR R20,R20,R20        //Stall instruction
+BNEQZ R3,Loop         //if [R3]!=0 jump to Loop (-5 offset)
+OR R20,R20,R20        //Stall instruction
+SW R2,-2(R10)         //Mem[(R10)-2]=[R2]
+HLT                   //Halt
+```
+
+
+Following simulation results are obtained for different values of data word stored in 200 :<br>
+
+![](res_fact.png)
+
+
+The timing waveform is generated for one of the simulations. Observe that with the activation of signal `TAKEN_BRANCH`, the PC(program counter) value jumps back to a location where label `Loop` is specified in instruction : <br>
+
+![](wf_fact.png)
